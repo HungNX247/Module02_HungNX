@@ -18,5 +18,6 @@ public class DisplayPrimeNumbersLessThan100 {
             }
             number++;
         }
+        sc.close();
     }
 }
