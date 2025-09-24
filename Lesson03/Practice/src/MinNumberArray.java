@@ -32,6 +32,7 @@ public class MinNumberArray {
         }
         int indexOfMin = findMin(numbers);
         System.out.println("The smallest number is " + numbers[indexOfMin] + " at index " + (indexOfMin + 1) + ".");
+
         sc.close();
 
     }
