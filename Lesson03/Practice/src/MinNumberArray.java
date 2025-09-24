@@ -18,7 +18,7 @@ public class MinNumberArray {
     public static void main(String[] args) {
         int size;
         int[] numbers;
-        System.out.println("Enter the size of the array: ");
+        System.out.print("Enter the size of the array: ");
         size = sc.nextInt();
         numbers = new int[size];
         for (int i = 0; i < numbers.length; i++) {
