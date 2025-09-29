@@ -26,4 +26,5 @@ public class Circle {
     public void setColor(String coString) {
         this.color = coString;
     }
+
 }
