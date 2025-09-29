@@ -10,4 +10,13 @@ public class Car {
         this.engine = engine;
         numberOfCars++;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
 }
