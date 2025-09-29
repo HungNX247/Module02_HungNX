@@ -1,4 +1,4 @@
-package com.codegym.hungnx.lesson05.practice;
+package com.codegym.hungnx.lesson05.practice.car;
 
 public class Car {
     private String name;
