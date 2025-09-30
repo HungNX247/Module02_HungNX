@@ -1,0 +1,5 @@
+# Giữ LF cho shell script (Mac/Linux)
+*.sh text eol=lf
+
+# Giữ CRLF cho batch script (Windows)
+*.bat text eol=crlf
