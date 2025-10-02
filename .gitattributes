@@ -1,5 +1,27 @@
-# Giữ LF cho shell script (Mac/Linux)
+# Luôn normalize newline thành LF trong repo
+* text=auto
+
+# Java source code luôn dùng LF
+*.java text eol=lf
+
+# Script batch trên Windows giữ CRLF
+*.bat text eol=crlf
+
+# Shell script giữ LF (cho Linux/Mac)
 *.sh text eol=lf
 
-# Giữ CRLF cho batch script (Windows)
-*.bat text eol=crlf
+# File markdown, text, config dùng LF
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# File binary không động chạm gì
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.jar binary
+*.exe binary
+*.dll binary
