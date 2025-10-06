@@ -1,0 +1,28 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Ex01",
+      "request": "launch",
+      "mainClass": "comparable_interface.Ex01",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "BodyMassIndex",
+      "request": "launch",
+      "mainClass": "BodyMassIndex",
+      "projectName": "Module02_HungNX_f7c26c28"
+    }
+  ]
+}
