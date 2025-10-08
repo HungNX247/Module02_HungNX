@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Ex02",
+      "request": "launch",
+      "mainClass": "cloneable_interface.Ex02",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "cloneable_interface.Main",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "Ex01",
       "request": "launch",
       "mainClass": "comparable_interface.Ex01",
