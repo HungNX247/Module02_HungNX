@@ -11,6 +11,7 @@ public class Ex02 {
         list1.add(2.5);
         list1.add(3.5);
 
+        @SuppressWarnings("unchecked")
         ArrayList<Double> list2 = (ArrayList<Double>) list1.clone();
         ArrayList<Double> list3 = list1;
         list2.add(4.5);
