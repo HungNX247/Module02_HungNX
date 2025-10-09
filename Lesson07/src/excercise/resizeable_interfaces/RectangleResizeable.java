@@ -11,7 +11,7 @@ public class RectangleResizeable {
         for (Rectangle rectangle : rectangles) {
             System.out.println(rectangle);
         }
-        System.out.println();
+        System.out.println("-----------------------------------------------------------");
 
         System.out.println("After the change:");
         double percent = Math.random() * 99 + 1;

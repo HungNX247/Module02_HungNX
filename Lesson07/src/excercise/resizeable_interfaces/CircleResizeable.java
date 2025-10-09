@@ -12,7 +12,7 @@ public class CircleResizeable {
             System.out.println(circle);
         }
 
-        System.out.println();
+        System.out.println("-----------------------------------------------------------");
 
         System.out.println("After the change:");
         double percent = Math.random() * 99 + 1;

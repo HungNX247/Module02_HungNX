@@ -12,7 +12,7 @@ public class SquareResizeable {
             System.out.println(square);
         }
 
-        System.out.println();
+        System.out.println("-----------------------------------------------------------");
 
         System.out.println("After the change: ");
         double percent = Math.random() * 99 + 1;
