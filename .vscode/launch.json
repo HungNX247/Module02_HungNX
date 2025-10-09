@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TestColorable",
+      "request": "launch",
+      "mainClass": "excercise.colorable_interfaces.TestColorable",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "SquareResizeable",
       "request": "launch",
       "mainClass": "excercise.resizeable_interfaces.SquareResizeable",
