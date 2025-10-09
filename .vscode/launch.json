@@ -6,6 +6,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SquareResizeable",
+      "request": "launch",
+      "mainClass": "excercise.resizeable_interfaces.SquareResizeable",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "RectangleResizeable",
+      "request": "launch",
+      "mainClass": "excercise.resizeable_interfaces.RectangleResizeable",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "CircleResizeable",
+      "request": "launch",
+      "mainClass": "excercise.resizeable_interfaces.CircleResizeable",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "ResizeableTest",
+      "request": "launch",
+      "mainClass": "excercise.resizeable_interfaces.ResizeableTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "SquareComparatorTest",
       "request": "launch",
       "mainClass": "practice.practice03.SquareComparatorTest",
