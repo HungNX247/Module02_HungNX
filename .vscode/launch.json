@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ComparableSquareTest",
+      "request": "launch",
+      "mainClass": "practice.practice02.ComparableSquareTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "ComparableRectangleTest",
+      "request": "launch",
+      "mainClass": "practice.practice02.ComparableRectangleTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "ComparableCircleTest",
       "request": "launch",
       "mainClass": "practice.practice02.ComparableCircleTest",

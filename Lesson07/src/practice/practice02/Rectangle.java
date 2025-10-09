@@ -44,7 +44,7 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "A Rectangle with width = " + getWidth() + ", and length = " + getLength() + ", which is subclass of "
-                + super.toString();
+        return "A Rectangle with width = " + getWidth() + ", and length = " + getLength() + ", Perimeter =  "
+                + getPerimeter();
     }
 }
