@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SquareComparatorTest",
+      "request": "launch",
+      "mainClass": "practice.practice03.SquareComparatorTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "RectangleComparatorTest",
+      "request": "launch",
+      "mainClass": "practice.practice03.RectangleComparatorTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "CircleComparatorTest",
+      "request": "launch",
+      "mainClass": "practice.practice03.CircleComparatorTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "ComparableSquareTest",
       "request": "launch",
       "mainClass": "practice.practice02.ComparableSquareTest",
