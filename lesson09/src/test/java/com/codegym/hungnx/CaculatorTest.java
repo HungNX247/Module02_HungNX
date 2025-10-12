@@ -15,7 +15,7 @@ public class CaculatorTest {
     @Test
     public void testDivine() {
         int result = calculator.divide(6, 3);
-        assertEquals(3, result);
+        assertEquals(2, result);
     }
 
 }
