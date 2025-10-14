@@ -2,17 +2,30 @@ package main.com.excercise.fizzbuzz;
 
 public class FizzBuzz {
     public static String fizzBuzz(int number) {
-        if (number <= 0) {
-            throw new IllegalArgumentException("Number must be greater than 0");
+        if (number <= 0 || number >=100) {
+            throw new IllegalArgumentException("Number must be beetwen 1 to 99");
         }
+        String stringNumber = String.valueOf(number);
         boolean isFizz = number % 3 == 0;
         boolean isBuzz = number % 5 == 0;
-        if (isFizz && isBuzz)
+        boolean contains3 = stringNumber.contains("3");
+        boolean contains5 = stringNumber.contains("5");
+        if ((isFizz || contains3) && (isBuzz || contains5))
             return "FizzBuzz";
-        if (isFizz)
+        if (isFizz || contains3)
             return "Fizz";
-        if (isBuzz)
+        if (isBuzz || contains5)
             return "Buzz";
-        return String.valueOf(number);
+        return readNumberVietnamese(number);
+    }
+
+    private static String readNumberVietnamese(int number) {
+        String[] arrayNumber = {"khong", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin"};
+        if (number < 10) return arrayNumber[number];
+
+        int chuc = number / 10;
+        int donvi = number % 10;
+
+        return (arrayNumber[chuc] +" " + arrayNumber[donvi]).trim();
     }
 }
