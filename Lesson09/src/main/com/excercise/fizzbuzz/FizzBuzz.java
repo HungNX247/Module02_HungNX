@@ -23,9 +23,9 @@ public class FizzBuzz {
         String[] arrayNumber = {"khong", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin"};
         if (number < 10) return arrayNumber[number];
 
-        int chuc = number / 10;
-        int donvi = number % 10;
+        int tens = number / 10;
+        int ones = number % 10;
 
-        return (arrayNumber[chuc] +" " + arrayNumber[donvi]).trim();
+        return (arrayNumber[tens] +" " + arrayNumber[ones]).trim();
     }
 }
