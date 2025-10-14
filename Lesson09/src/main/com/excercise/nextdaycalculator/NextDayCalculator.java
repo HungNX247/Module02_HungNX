@@ -1,4 +1,4 @@
-package main.com.excercise;
+package main.com.excercise.nextdaycalculator;
 
 public class NextDayCalculator {
     public static boolean isLeapYear(int year) {
