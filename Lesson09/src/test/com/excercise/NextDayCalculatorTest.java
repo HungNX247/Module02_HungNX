@@ -38,4 +38,9 @@ public class NextDayCalculatorTest {
     public void testNextDay_EndOfYear() {
         assertEquals("01/01/2019", nextDayCalculator.getNextDay(31, 12, 2018));
     }
+
+    @Test
+    public void testNextDay_NonLeapDay() {
+        assertEquals("29/02/2020", nextDayCalculator.getNextDay(28, 2, 2020));
+    }
 }
