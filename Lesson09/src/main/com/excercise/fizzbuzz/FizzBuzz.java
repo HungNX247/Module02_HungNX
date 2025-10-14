@@ -26,6 +26,6 @@ public class FizzBuzz {
         int tens = number / 10;
         int ones = number % 10;
 
-        return (arrayNumber[tens] +" " + arrayNumber[ones]).trim();
+        return (arrayNumber[tens] + " " + arrayNumber[ones]).trim();
     }
 }
