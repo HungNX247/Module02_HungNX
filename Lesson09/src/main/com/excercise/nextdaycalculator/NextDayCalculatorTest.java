@@ -1,10 +1,8 @@
-package test.com.excercise;
+package main.com.excercise.nextdaycalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
-import main.com.excercise.NextDayCalculator;
 
 public class NextDayCalculatorTest {
     NextDayCalculator nextDayCalculator = new NextDayCalculator();
