@@ -20,7 +20,7 @@ public class FizzBuzz {
     }
 
     private static String readNumberVietnamese(int number) {
-        String[] arrayNumber = { "", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin" };
+        String[] arrayNumber = { "khong", "mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin" };
         if (number < 10)
             return arrayNumber[number];
 
