@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MyLinkedListTest",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.linkedlist.MyLinkedListTest",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "MyListTest",
       "request": "launch",
       "mainClass": "com.codegym.practice.list.MyListTest",
