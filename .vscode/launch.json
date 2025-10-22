@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GenericStackClient",
+      "request": "launch",
+      "mainClass": "com.codegym.stack.GenericStackClient",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "MyListTest",
       "request": "launch",
       "mainClass": "com.codegym.excercise.arraylist.MyListTest",
