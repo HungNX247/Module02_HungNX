@@ -18,12 +18,7 @@ public class WordCount {
             if (word.isEmpty()) {
                 continue;
             }
-
-            if (wordCountMap.containsKey(word)) {
-                wordCountMap.put(word, wordCountMap.get(word) + 1);
-            } else {
-                wordCountMap.put(word, 1);
-            }
+            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
         }
 
         System.out.println("\n Tan suat hien thi: ");
