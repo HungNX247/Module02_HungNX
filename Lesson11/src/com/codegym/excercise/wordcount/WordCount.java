@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class WordCount {
     public static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.print("Enter s tring: ");
+        System.out.print("Enter string: ");
         String inputString = scanner.nextLine();
 
         Map<String, Integer> wordCountMap = new TreeMap<>();
