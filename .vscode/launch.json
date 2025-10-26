@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "com.codegym.excercise.queue.Solution",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "WordCount",
       "request": "launch",
       "mainClass": "com.codegym.excercise.wordcount.WordCount",
