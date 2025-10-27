@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.hash.Main",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "TestMap",
       "request": "launch",
       "mainClass": "com.codegym.practice.map.TestMap",
