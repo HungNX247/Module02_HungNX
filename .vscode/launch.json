@@ -8,6 +8,13 @@
       "type": "java",
       "name": "Main",
       "request": "launch",
+      "mainClass": "com.codegym.practice.compara.Main",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
       "mainClass": "com.codegym.practice.hash.Main",
       "projectName": "Module02_HungNX_f7c26c28"
     },
