@@ -19,6 +19,10 @@ public class BubleSort {
                     needNextPass = true;
                 }
             }
+            if (needNextPass == false) {
+                System.out.println("Array may be sorted and next pass not needed");
+                break;
+            }
         }
     }
 
