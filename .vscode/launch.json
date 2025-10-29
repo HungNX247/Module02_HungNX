@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BubleSort2",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.bublesort.set.BubleSort2",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "BubleSort",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.bublesort.set.BubleSort",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "Main",
       "request": "launch",
       "mainClass": "com.codegym.practice.compara.Main",

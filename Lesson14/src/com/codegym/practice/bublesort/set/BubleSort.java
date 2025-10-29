@@ -1,0 +1,47 @@
+package com.codegym.practice.bublesort.set;
+
+import java.util.Scanner;
+
+public class BubleSort {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void bubleSort(int[] list) {
+        boolean needNextPass = true;
+
+        for (int k = 1; k < list.length && needNextPass; k++) {
+            needNextPass = false;
+            for (int i = 0; i < list.length - k; i++) {
+                if (list[i] > list[i + 1]) {
+                    int temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1] = temp;
+
+                    needNextPass = true;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Enter elements numbers:");
+        int n = scanner.nextInt();
+        int[] list = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter element at postition " + (i + 1) + ": ");
+            list[i] = scanner.nextInt();
+        }
+        System.out.println("Before sorted: ");
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(list[i] + " ");
+        }
+        System.out.println();
+        bubleSort(list);
+        System.out.println("--------------------------------------------- ");
+        System.out.println("After sorted: ");
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(list[i] + " ");
+        }
+
+        scanner.close();
+    }
+}
