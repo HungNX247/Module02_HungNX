@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class BubleSort {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void bubleSort(int[] list) {
+    public static void bubleSort(final int[] list) {
         boolean needNextPass = true;
 
         for (int k = 1; k < list.length && needNextPass; k++) {
             needNextPass = false;
             for (int i = 0; i < list.length - k; i++) {
                 if (list[i] > list[i + 1]) {
-                    int temp = list[i];
+                    final int temp = list[i];
                     list[i] = list[i + 1];
                     list[i + 1] = temp;
 
@@ -26,10 +26,10 @@ public class BubleSort {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         System.out.print("Enter elements numbers:");
-        int n = scanner.nextInt();
-        int[] list = new int[n];
+        final int n = scanner.nextInt();
+        final int[] list = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Enter element at postition " + (i + 1) + ": ");
             list[i] = scanner.nextInt();
