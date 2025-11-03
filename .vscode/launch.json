@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BinarySearch2",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.BinarySearch2",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
+      "name": "BinarySearch",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.BinarySearch",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "InsertionSort",
       "request": "launch",
       "mainClass": "com.codegym.excercise.InsertionSort",
