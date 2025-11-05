@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ReadAndWriteFile",
+      "request": "launch",
+      "mainClass": "com.codegym.practice.io_text_file.ReadAndWriteFile",
+      "projectName": "Module02_HungNX_f7c26c28"
+    },
+    {
+      "type": "java",
       "name": "ReadFileExample",
       "request": "launch",
       "mainClass": "com.codegym.practice.io_text_file.ReadFileExample",
