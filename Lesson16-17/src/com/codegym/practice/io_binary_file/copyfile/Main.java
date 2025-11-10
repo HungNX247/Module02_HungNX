@@ -1,4 +1,4 @@
-package com.codegym.practice.io_binary_file;
+package com.codegym.practice.io_binary_file.copyfile;
 
 import java.io.File;
 import java.io.IOException;
