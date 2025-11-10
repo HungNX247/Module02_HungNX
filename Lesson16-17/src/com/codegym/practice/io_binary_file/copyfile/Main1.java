@@ -1,4 +1,4 @@
-package com.codegym.practice.io_binary_file;
+package com.codegym.practice.io_binary_file.copyfile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +22,7 @@ public class Main1 {
         File des = new File(desPath);
 
         try {
-            copyFileUsing(desPath, soure);
+            copyFileUsing(des, soure);
 
         } catch (IOException e) {
             System.out.print("Can't copy that file!");
@@ -31,12 +31,12 @@ public class Main1 {
 
     }
 
-    private static void copyFileUsing(String desPath, File soure) throws IOException {
+    private static void copyFileUsing(File des, File soure) throws IOException {
         InputStream is = null;
         OutputStream os = null;
         try {
             is = new FileInputStream(soure);
-            os = new FileOutputStream(desPath);
+            os = new FileOutputStream(des);
             byte[] buffer = new byte[1024];
             int length;
 
