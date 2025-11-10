@@ -57,5 +57,6 @@ public class ReadAndWriteFile {
         List<Integer> numbers = readAndWriteFile.readFile("D:\\Module02_HungNX\\Lesson16-17\\numbers.txt");
         int maxValue = readAndWriteFile.findMax(numbers);
         readAndWriteFile.writeFile("result.txt", maxValue);
+
     }
 }
