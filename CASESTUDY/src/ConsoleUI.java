@@ -13,12 +13,12 @@ public class ConsoleUI {
         int choice;
         do {
             showMenu();
-            System.out.print("Select function: ");
+            System.out.print("Lua chon chuc nang: ");
             try {
                 choice = scanner.nextInt();
                 scanner.nextLine();
             } catch (java.util.InputMismatchException e) {
-                System.err.println("Vui lòng chỉ nhập số cho lựa chọn chức năng");
+                System.err.println("Vui long chi nhap so cho lua chon chuc nang");
                 scanner.nextLine();
                 choice = -1;
                 continue;
@@ -70,9 +70,25 @@ public class ConsoleUI {
         throw new UnsupportedOperationException("Unimplemented method 'searchProduct'");
     }
 
-    private void createProduct() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createProduct'");
+    private void createProduct() throws Exception {
+        System.out.println("\n--- THEM SAN PHAM MOI ---");
+        System.out.print("Ten san pham: ");
+        String name = scanner.nextLine();
+
+        double price = 0.0;
+        boolean priceValid = false;
+
+        while (!priceValid) {
+            System.out.print("Gia (VND): ");
+            try {
+                price = scanner.nextDouble();
+                scanner.nextLine();
+                priceValid = true;
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Loi: Gia phai la so hop le.");
+                scanner.nextLine();
+            }
+        }
     }
 
     private void showProduct() throws Exception {
@@ -92,6 +108,36 @@ public class ConsoleUI {
                 continue;
             } else if (result.totalItems() == 0) {
                 return;
+            }
+
+            System.out.printf("Trang: %d/%d (Tong san pham: %d)\n", result.currentPage(), totalPages,
+                    result.totalItems());
+            System.out.print("Nhap [T]rang sau, [P]rang truoc, [S]o trang hoac [Q]uay lai");
+            String action = scanner.nextLine().trim().toUpperCase();
+
+            switch (action) {
+                case "T":
+                    currentPage = Math.min(currentPage + 1, totalPages);
+                    break;
+                case "P":
+                    currentPage = Math.max(currentPage - 1, 1);
+                    break;
+                case "Q":
+                    return;
+                default:
+                    try {
+                        int newPage = Integer.parseInt(action);
+                        if (newPage >= 1 && newPage <= totalPages) {
+                            currentPage = newPage;
+                        } else {
+                            System.out.println("So trang khong hop le. Vui long nhap lai");
+                        }
+                    } catch (NumberFormatException e) {
+                        if (!action.isEmpty()) {
+                            System.out.println("Lua chon khong hop le!");
+                        }
+                    }
+                    break;
             }
         } while (true);
     }
