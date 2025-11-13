@@ -2,7 +2,8 @@
 import java.util.List;
 import java.util.Optional;
 
-record PaginationResult(List<Product> products, int curentPage, int totalPages, int totalItems) {}
+record PaginationResult(List<Product> products, int currentPage, int totalPages, int totalItems) {
+}
 
 public class ProductService {
     private final IProductRepository repository;
@@ -18,7 +19,7 @@ public class ProductService {
         }
 
         double price = product.getPrice();
-        if (Double.isNaN(price)||Double.isInfinite(price)) {
+        if (Double.isNaN(price) || Double.isInfinite(price)) {
             throw new IllegalArgumentException("Gia san pham khong hop le!");
         }
 
@@ -61,7 +62,7 @@ public class ProductService {
             page = totalPages;
         }
 
-        int start = (page - 1)*pageSize;
+        int start = (page - 1) * pageSize;
         int end = Math.min(start + pageSize, totalItems);
 
         List<Product> paginatedList = allProducts.subList(start, end);
