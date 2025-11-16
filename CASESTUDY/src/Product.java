@@ -11,7 +11,7 @@ public class Product implements Comparable<Product> {
     private static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    // Constructor đầy đủ
+    
     public Product(int id, String name, double price, String description, LocalDate productionDate) {
         this.id = id;
         this.name = name;
@@ -20,7 +20,6 @@ public class Product implements Comparable<Product> {
         this.productionDate = productionDate;
     }
 
-    // Getters / Setters
     public int getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
@@ -48,13 +47,12 @@ public class Product implements Comparable<Product> {
     public String toString() {
         String dateStr = productionDate != null ? productionDate.format(DATE_FORMATTER) : "";
 
-        // Rút gọn mô tả để bảng gọn hơn (giống hình bạn gửi)
+        // Rút gọn mô tả để bảng gọn hơn
         String shortDesc = description;
         if (shortDesc != null && shortDesc.length() > 30) {
             shortDesc = shortDesc.substring(0, 27) + "...";
         }
 
-        // Chú ý width cho từng cột để khớp với header bạn đã in
         return String.format(
                 "| %-4d | %-25s | %-12.2f | %-40s | %-12s |",
                 id, name, price, shortDesc, dateStr
