@@ -15,4 +15,6 @@ public interface IProductRepository {
     int count() throws Exception;
 
     List<Product> search(String query) throws Exception;
+    
+    void saveAll() throws Exception;
 }
