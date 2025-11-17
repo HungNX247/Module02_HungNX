@@ -8,10 +8,8 @@ public class Product implements Comparable<Product> {
     private String description;
     private LocalDate productionDate;
 
-    private static final DateTimeFormatter DATE_FORMATTER =
-            DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    
     public Product(int id, String name, double price, String description, LocalDate productionDate) {
         this.id = id;
         this.name = name;
@@ -20,28 +18,55 @@ public class Product implements Comparable<Product> {
         this.productionDate = productionDate;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public double getPrice() { return price; }
-    public String getDescription() { return description; }
-    public LocalDate getProductionDate() { return productionDate; }
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) { this.id = id; }
-    public void setName(String name) { this.name = name; }
-    public void setPrice(double price) { this.price = price; }
-    public void setDescription(String description) { this.description = description; }
-    public void setProductionDate(LocalDate productionDate) { this.productionDate = productionDate; }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getProductionDate() {
+        return productionDate;
+    }
+
+    public void setProductionDate(LocalDate productionDate) {
+        this.productionDate = productionDate;
+    }
 
     // Để ghi ra file
     public String toCsvString() {
-    String dateStr = productionDate != null ? productionDate.format(DATE_FORMATTER) : "";
-    return id + "|" 
-            + name + "|" 
-            + String.format("%.0f", price) + "|" 
-            + description + "|" 
-            + dateStr;
-}
-
+        String dateStr = productionDate != null ? productionDate.format(DATE_FORMATTER) : "";
+        return id + "|"
+                + name + "|"
+                + String.format("%.0f", price) + "|"
+                + description + "|"
+                + dateStr;
+    }
 
     @Override
     public String toString() {
@@ -54,9 +79,8 @@ public class Product implements Comparable<Product> {
         }
 
         return String.format(
-                "| %-4d | %-25s | %-12.2f | %-40s | %-12s |",
-                id, name, price, shortDesc, dateStr
-        );
+                "| %-4d | %-25s | %,-12.2f | %-40s | %-12s |",
+                id, name, price, shortDesc, dateStr);
     }
 
     @Override

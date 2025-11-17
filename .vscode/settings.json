@@ -3,5 +3,15 @@
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     "Lesson09/lib/junit-platform-console-standalone-6.0.0.jar"
-  ]
+  ],
+
+  "terminal.integrated.env.windows": {
+    "JAVA_TOOL_OPTIONS": "-Dfile.encoding=UTF-8",
+    "LANG": "en_US.UTF-8"
+  },
+
+  "java.debug.settings.console": "integratedTerminal",
+  "java.debug.settings.vmArgs": "-Dfile.encoding=UTF-8",
+
+  "terminal.integrated.fontFamily": "Cascadia Mono"
 }

@@ -11,7 +11,7 @@ record PaginationResult(List<Product> products, int currentPage, int totalPages,
 
 public class ProductService {
     private final IProductRepository repository;
-    private final int pageSize = 5;
+    private final int pageSize = 50;
     private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9 ]{3,50}$");
 
     public ProductService(IProductRepository repository) {
@@ -20,20 +20,20 @@ public class ProductService {
 
     private void validateProduct(Product product) {
         if (product.getName() == null || product.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("Ten san pham khong duoc de trong!");
+            throw new IllegalArgumentException("Tên sản phẩm không được để trống!");
         }
 
         if (!NAME_PATTERN.matcher(product.getName()).matches()) {
-            throw new IllegalArgumentException("Ten san pham phai tu 3-50 ky tu, chi chua chu cai, so va dau cach.");
+            throw new IllegalArgumentException("Tên sản phẩm phải từ 3-50 ký tự, chỉ chứa chữ cái, số và dấu cách.");
         }
 
         double price = product.getPrice();
         if (Double.isNaN(price) || Double.isInfinite(price)) {
-            throw new IllegalArgumentException("Gia san pham khong hop le!");
+            throw new IllegalArgumentException("Giá sản phẩm không hợp lệ!");
         }
 
         if (price <= 0) {
-            throw new IllegalArgumentException("Gia san pham phai la so duong!");
+            throw new IllegalArgumentException("Giá sản phẩm phải là số dương!");
         }
     }
 
@@ -59,9 +59,13 @@ public class ProductService {
     }
 
     public List<Product> sortProducts(List<Product> products, String sortString) {
-        String[] parts = sortString.toUpperCase().split(":");
-        String criteria = parts[0];
-        String direction = parts.length > 1 ? parts[1] : "ASC";
+        if (products == null || products.isEmpty())
+            return products;
+
+        String[] parts = sortString.toUpperCase().trim().split(":");
+        String criteria = parts[0].trim();
+        String direction = parts.length > 1 ? parts[1].trim() : "ASC";
+
         Comparator<Product> comparator;
 
         switch (criteria) {
@@ -69,7 +73,8 @@ public class ProductService {
                 comparator = Comparator.comparingInt(Product::getId);
                 break;
             case "NAME":
-                comparator = Comparator.comparing(Product::getName);
+                comparator = Comparator.comparing(
+                        p -> p.getName().toLowerCase());
                 break;
             case "PRICE":
                 comparator = Comparator.comparingDouble(Product::getPrice);
@@ -78,13 +83,16 @@ public class ProductService {
                 comparator = Comparator.comparing(Product::getProductionDate);
                 break;
             default:
-                comparator = Comparator.naturalOrder();
+                comparator = Comparator.comparingInt(Product::getId);
         }
 
         if ("DESC".equalsIgnoreCase(direction)) {
             comparator = comparator.reversed();
         }
-        return products.stream().sorted(comparator).collect(Collectors.toList());
+
+        return products.stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
     }
 
     public List<Product> filterProductsByPrice(double minPrice, double maxPrice) throws Exception {

@@ -17,13 +17,11 @@ public class ProductRepository implements IProductRepository {
     private static ProductRepository instance;
 
     private static final String FILE_PATH = "product.txt";
-    private static final DateTimeFormatter DATE_FORMATTER =
-            DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final int LATENCY_MS = 500;
 
     // Regex: cho phép mọi ký tự trừ '|' cho tên và mô tả
-    private static final String PRODUCT_REGEX =
-            "^\\d+\\|[^\\|]+\\|[0-9]+\\.?[0-9]*\\|[^\\|]*\\|\\d{2}/\\d{2}/\\d{4}$";
+    private static final String PRODUCT_REGEX = "^\\d+\\|[^\\|]+\\|[0-9]+\\.?[0-9]*\\|[^\\|]*\\|\\d{2}/\\d{2}/\\d{4}$";
     private static final Pattern PATTERN = Pattern.compile(PRODUCT_REGEX);
 
     private final List<Product> products = new ArrayList<>();
@@ -42,26 +40,28 @@ public class ProductRepository implements IProductRepository {
 
     @SuppressWarnings("unused")
     private void simulateLatency() {
-        if (LATENCY_MS <= 0) return;
+        if (LATENCY_MS <= 0)
+            return;
         try {
             Thread.sleep(LATENCY_MS);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Loi mo phong do tre: " + e.getMessage());
+            System.err.println("Lỗi mô phỏng độ trễ: " + e.getMessage());
         }
     }
 
     private void loadDataFromFile() {
-        System.out.println("---Dang tai du lieu tu file " + FILE_PATH + "---");
+        System.out.println("---Đang tải dữ liệu file " + FILE_PATH + "---");
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.trim().isEmpty()) continue;
+                if (line.trim().isEmpty())
+                    continue;
 
                 Matcher matcher = PATTERN.matcher(line);
                 if (!matcher.matches()) {
-                    System.err.println("Loi Regex: Bo qua dong du lieu khong hop le: " + line);
+                    System.err.println("Lỗi Regex: Bỏ qua dòng dữ liệu không hợp lệ: " + line);
                     continue;
                 }
 
@@ -78,15 +78,15 @@ public class ProductRepository implements IProductRepository {
                         products.add(new Product(id, name, price, description, date));
                         nextID.set(Math.max(nextID.get(), id + 1));
                     } catch (NumberFormatException | java.time.format.DateTimeParseException e) {
-                        System.err.println("Loi parse du lieu so/ngay thang: " + line);
+                        System.err.println("Lỗi parse dữ liệu số/ngày tháng: " + line);
                     }
                 }
             }
         } catch (FileNotFoundException e) {
-            System.err.println("File " + FILE_PATH + " khong ton tai. Tao du lieu mau.");
+            System.err.println("File " + FILE_PATH + " không tồn tại. Tạo dữ liệu mẫu.");
             initializeSampleData();
         } catch (IOException e) {
-            System.err.println("Loi doc file: " + e.getMessage());
+            System.err.println("Lỗi đọc file: " + e.getMessage());
         }
     }
 
@@ -96,14 +96,13 @@ public class ProductRepository implements IProductRepository {
                     nextID.getAndIncrement(),
                     "Laptop Gaming X" + i,
                     20000000.0 + (i * 1000000),
-                    "High performance, suitable for gaming and work",
-                    LocalDate.of(2024, 1, 1).plusMonths(i - 1)
-            ));
+                    "Hiệu suất cao, phù hợp cho chơi game và làm việc",
+                    LocalDate.of(2024, 1, 1).plusMonths(i - 1)));
         }
         try {
             saveAll();
         } catch (Exception e) {
-            System.err.println("Loi luu du lieu mau: " + e.getMessage());
+            System.err.println("Lỗi lưu dữ liệu mẫu: " + e.getMessage());
         }
     }
 
@@ -130,7 +129,7 @@ public class ProductRepository implements IProductRepository {
             }
         }
         // Thống nhất: ném Exception có kiểm tra (thay vì RuntimeException)
-        throw new Exception("Cap nhat that bai: Khong tim thay ID san pham " + product.getId());
+        throw new Exception("Cập nhật thất bại: Không tìm thấy ID sản phẩm " + product.getId());
     }
 
     @Override
@@ -174,10 +173,12 @@ public class ProductRepository implements IProductRepository {
     public List<Product> search(String query) {
         simulateLatency();
         List<Product> result = new ArrayList<>();
-        if (query == null) return result;
+        if (query == null)
+            return result;
 
         String keyword = query.trim().toLowerCase();
-        if (keyword.isEmpty()) return result;
+        if (keyword.isEmpty())
+            return result;
 
         for (Product product : products) {
             String name = product.getName().toLowerCase();
@@ -193,14 +194,14 @@ public class ProductRepository implements IProductRepository {
     @Override
     public void saveAll() throws Exception {
         simulateLatency();
-        System.out.println("---Dang ghi du lieu vao file " + FILE_PATH + "---");
+        System.out.println("---Đang ghi dữ liệu vào file " + FILE_PATH + "---");
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (Product product : products) {
                 bufferedWriter.write(product.toCsvString());
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {
-            throw new Exception("Loi I/O khi luu file " + e.getMessage());
+            throw new Exception("Lỗi I/O khi lưu file " + e.getMessage());
         }
     }
 }
