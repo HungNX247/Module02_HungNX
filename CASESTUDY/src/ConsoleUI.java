@@ -279,7 +279,7 @@ public class ConsoleUI {
             System.out.println("Các tiêu chí: [ID], [NAME], [PRICE], [DATE]");
             System.out.println("Cú pháp sắp xếp: CRITERIA[:DIRECTION]. VD: PRICE:DESC, NAME:ASC (Mặc định là ASC)");
 
-            System.out.print("Nhập [T]rang sau, [P]rang trước, [S]ố trang, [C]họn sắp xếp hoặc [Q]uay lại: ");
+            System.out.print("Nhập [T]Trang sau, [P]Trang trước, [S]Số trang, [C]Chọn sắp xếp hoặc [Q]Quay lại: ");
             String action = scanner.nextLine().trim().toUpperCase();
 
             switch (action) {

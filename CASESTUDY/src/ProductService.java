@@ -11,7 +11,7 @@ record PaginationResult(List<Product> products, int currentPage, int totalPages,
 
 public class ProductService {
     private final IProductRepository repository;
-    private final int pageSize = 50;
+    private final int pageSize = 5;
     private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9 ]{3,50}$");
 
     public ProductService(IProductRepository repository) {
