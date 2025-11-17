@@ -110,12 +110,12 @@ public class ConsoleUI {
                     case 5:
                         searchProduct();
                         break;
-                    case 6: 
-                        filterProduct(); 
+                    case 6:
+                        filterProduct();
                         break;
                     case 0:
-                    System.out.println("--- Dang luu du lieu lan cuoi va thoat ---");
-                    ProductRepository.getInstance().saveAll();
+                        System.out.println("--- Dang luu du lieu lan cuoi va thoat ---");
+                        ProductRepository.getInstance().saveAll();
                         System.out.println("Tam biet! Ung dung ket thuc. ");
                         break;
                     default:
@@ -171,7 +171,8 @@ public class ConsoleUI {
         String descrition = scanner.nextLine();
 
         LocalDate currentDate = existingProduct.getProductionDate();
-        LocalDate date = readDateInput("Ngay san xuat moi (De trong neu khong doi: " + currentDate.format(DATE_FORMATTER) + ")", currentDate);
+        LocalDate date = readDateInput(
+                "Ngay san xuat moi (De trong neu khong doi: " + currentDate.format(DATE_FORMATTER) + ")", currentDate);
 
         existingProduct.setName(name.trim().isEmpty() ? existingProduct.getName() : name);
         existingProduct.setPrice(price);
@@ -227,7 +228,7 @@ public class ConsoleUI {
         } catch (NumberFormatException e) {
             System.out.printf("--- Đang tìm kiếm sản phẩm theo từ khóa '%s' ---", query);
 
-            List<Product> searchResults = service.seaProducts(query);
+            List<Product> searchResults = service.searchProducts(query);
             displayProductList(searchResults, "KET QUA TIM KIEM THEO TEN/MO TA");
         }
     }
@@ -237,8 +238,8 @@ public class ConsoleUI {
         System.out.print("Ten san pham: ");
         String name = scanner.nextLine();
 
-        double price = readDoubleInput("Gia (VND): ", 0.0) ;
-        
+        double price = readDoubleInput("Gia (VND): ", 0.0);
+
         System.out.print("Mo ta: ");
         String description = scanner.nextLine();
 
@@ -259,7 +260,7 @@ public class ConsoleUI {
         do {
             System.out.println("\n---Sap xep hien tai: " + sortCriteria.toUpperCase() + " ---");
             System.out.printf("\n--- Dang tai du lieu trang %d ---\n", currentPage);
-            PaginationResult result = service.getpaginatedProducts(currentPage, sortCriteria);
+            PaginationResult result = service.getPaginatedProducts(currentPage, sortCriteria);
             List<Product> products = result.products();
             totalPages = result.totalPages();
 
@@ -272,8 +273,8 @@ public class ConsoleUI {
                 return;
             }
 
-            System.out.printf("Trang: %d/%d (Tong san pham: %d)\n", 
-            result.currentPage(), totalPages,result.totalItems());
+            System.out.printf("Trang: %d/%d (Tong san pham: %d)\n",
+                    result.currentPage(), totalPages, result.totalItems());
 
             System.out.println("Cac tieu chi: [ID], [NAME], [PRICE], [DATE]");
             System.out.println("Cu phap sap xep: CRITERIA[:DIRECTION]. VD: PRICE:DESC, NAME:ASC (Mac dinh là ASC)");
@@ -290,7 +291,7 @@ public class ConsoleUI {
                     break;
                 case "Q":
                     return;
-                    case "C":
+                case "C":
                     System.out.print("Nhap tieu chi sap xep và huong (ID/NAME/PRICE/DATE[:ASC/DESC]): ");
                     String newCriteria = scanner.nextLine().trim();
                     if (!newCriteria.isEmpty()) {
@@ -331,13 +332,14 @@ public class ConsoleUI {
     }
 
     private void printHeader() {
-        System.out.println("\n---------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "\n---------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf(
-    "| %-4s | %-25s | %-12s | %-40s | %-12s |\n",
-    "ID", "Ten San Pham", "Gia (VND)", "Mo ta", "Ngay san xuat"
-);
- 
-        System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
+                "| %-4s | %-25s | %-12s | %-40s | %-12s |\n",
+                "ID", "Ten San Pham", "Gia (VND)", "Mo ta", "Ngay san xuat");
+
+        System.out.println(
+                "---------------------------------------------------------------------------------------------------------------------------------");
     }
 
     private void displayProductList(List<Product> products, String title) {
@@ -351,7 +353,8 @@ public class ConsoleUI {
         for (Product p : products) {
             System.out.println(p.toString());
         }
-        System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
-    
+        System.out.println(
+                "---------------------------------------------------------------------------------------------------------------------------------");
+
     }
 }

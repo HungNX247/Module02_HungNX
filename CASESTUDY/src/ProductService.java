@@ -54,7 +54,7 @@ public class ProductService {
         return repository.delete(id);
     }
 
-    public List<Product> seaProducts(String query) throws Exception {
+    public List<Product> searchProducts(String query) throws Exception {
         return repository.search(query);
     }
 
@@ -68,9 +68,15 @@ public class ProductService {
             case "ID":
                 comparator = Comparator.comparingInt(Product::getId);
                 break;
-            case "NAME": comparator = Comparator.comparing(Product::getName); break;
-            case "PRICE": comparator = Comparator.comparingDouble(Product::getPrice); break;
-            case "DATE": comparator = Comparator.comparing(Product::getProductionDate); break;
+            case "NAME":
+                comparator = Comparator.comparing(Product::getName);
+                break;
+            case "PRICE":
+                comparator = Comparator.comparingDouble(Product::getPrice);
+                break;
+            case "DATE":
+                comparator = Comparator.comparing(Product::getProductionDate);
+                break;
             default:
                 comparator = Comparator.naturalOrder();
         }
@@ -95,7 +101,7 @@ public class ProductService {
         return result;
     }
 
-    public PaginationResult getpaginatedProducts(int page, String sortString) throws Exception {
+    public PaginationResult getPaginatedProducts(int page, String sortString) throws Exception {
         List<Product> allProducts = repository.findAll();
         List<Product> sortedProducts = sortProducts(allProducts, sortString);
         int totalItems = sortedProducts.size();
@@ -112,7 +118,7 @@ public class ProductService {
         int start = (page - 1) * pageSize;
         int end = Math.min(start + pageSize, totalItems);
 
-        List<Product> paginatedList = allProducts.subList(start, end);
+        List<Product> paginatedList = sortedProducts.subList(start, end);
 
         return new PaginationResult(paginatedList, page, totalPages, totalItems);
     }
