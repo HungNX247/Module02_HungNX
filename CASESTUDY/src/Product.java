@@ -79,7 +79,7 @@ public class Product implements Comparable<Product> {
         }
 
         return String.format(
-                "| %-4d | %-25s | %,-12.2f | %-40s | %-12s |",
+                "| %-4d | %-25s | %,-12.0f | %-41s | %-14s |",
                 id, name, price, shortDesc, dateStr);
     }
 

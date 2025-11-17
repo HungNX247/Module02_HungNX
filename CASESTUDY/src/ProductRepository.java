@@ -18,7 +18,7 @@ public class ProductRepository implements IProductRepository {
 
     private static final String FILE_PATH = "product.txt";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final int LATENCY_MS = 500;
+    private static final int LATENCY_MS = 2000;
 
     // Regex: cho phép mọi ký tự trừ '|' cho tên và mô tả
     private static final String PRODUCT_REGEX = "^\\d+\\|[^\\|]+\\|[0-9]+\\.?[0-9]*\\|[^\\|]*\\|\\d{2}/\\d{2}/\\d{4}$";
