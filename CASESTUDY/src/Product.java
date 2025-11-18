@@ -72,7 +72,6 @@ public class Product implements Comparable<Product> {
     public String toString() {
         String dateStr = productionDate != null ? productionDate.format(DATE_FORMATTER) : "";
 
-        // Rút gọn mô tả để bảng gọn hơn
         String shortDesc = description;
         if (shortDesc != null && shortDesc.length() > 30) {
             shortDesc = shortDesc.substring(0, 27) + "...";
