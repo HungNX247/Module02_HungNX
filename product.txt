@@ -20,3 +20,5 @@
 20|Laptop Gaming X20|40000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/08/2025
 21|Laptop Gaming X21|41000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/09/2025
 22|Iphone 16 Plus|23000000||23/09/2025
+23|Samsung S25 Ultra|17000000||19/11/2025
+24|Iphone 17|38000000||19/11/2025

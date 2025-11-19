@@ -128,7 +128,6 @@ public class ProductRepository implements IProductRepository {
                 return p;
             }
         }
-        // Thống nhất: ném Exception có kiểm tra (thay vì RuntimeException)
         throw new Exception("Cập nhật thất bại: Không tìm thấy ID sản phẩm " + product.getId());
     }
 

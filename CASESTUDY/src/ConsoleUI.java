@@ -165,14 +165,14 @@ public class ConsoleUI {
         String name = scanner.nextLine();
 
         double currentPrice = existingProduct.getPrice();
-        double price = readDoubleInput("Giá mới (De trong neu khong doi: " + currentPrice + ")", currentPrice);
+        double price = readDoubleInput("Giá mới (De trong neu khong doi: " + currentPrice + "):", currentPrice);
 
         System.out.print("Mô tả mới (Để trống nếu không đổi: " + existingProduct.getDescription() + " ): ");
         String descrition = scanner.nextLine();
 
         LocalDate currentDate = existingProduct.getProductionDate();
         LocalDate date = readDateInput(
-                "Ngày sản xuất mới (Để trống nếu không đổi: " + currentDate.format(DATE_FORMATTER) + ")", currentDate);
+                "Ngày sản xuất mới (Để trống nếu không đổi: " + currentDate.format(DATE_FORMATTER) + "):", currentDate);
 
         existingProduct.setName(name.trim().isEmpty() ? existingProduct.getName() : name);
         existingProduct.setPrice(price);
@@ -279,7 +279,7 @@ public class ConsoleUI {
             System.out.println("Các tiêu chí: [ID], [NAME], [PRICE], [DATE]");
             System.out.println("Cú pháp sắp xếp: CRITERIA[:DIRECTION]. VD: PRICE:DESC, NAME:ASC (Mặc định là ASC)");
 
-            System.out.print("Nhập [T]Trang sau, [P]Trang trước, [S]Số trang, [C]Chọn sắp xếp hoặc [Q]Quay lại: ");
+            System.out.print("Nhập [T]Trang sau, [P]Trang trước, Số trang, [C]Chọn sắp xếp hoặc [Q]Quay lại: ");
             String action = scanner.nextLine().trim().toUpperCase();
 
             switch (action) {

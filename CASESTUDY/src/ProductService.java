@@ -32,7 +32,7 @@ public class ProductService {
             throw new IllegalArgumentException("Giá sản phẩm không hợp lệ!");
         }
 
-        if (price <= 0) {
+        if (price < 0) {
             throw new IllegalArgumentException("Giá sản phẩm phải là số dương!");
         }
     }
