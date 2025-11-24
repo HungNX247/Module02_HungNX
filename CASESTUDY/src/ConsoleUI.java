@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class ConsoleUI {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in, "UTF-8");
     private final ProductService service;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -204,15 +204,22 @@ public class ConsoleUI {
     }
 
     private void searchProduct() throws Exception {
+    while (true) {
         System.out.println("\n--- TÌM KIẾM SẢN PHẨM ---");
-        System.out.print("Nhập ID (số) hoặc Tên/Mô tả (chữ) để tìm kiếm: ");
+        System.out.print("Nhập ID (số) hoặc Tên/Mô tả (chữ) để tìm kiếm (gõ 0 để thoát): ");
         String query = scanner.nextLine().trim();
 
-        if (query.isEmpty()) {
-            System.out.println("Vui lòng nhập từ khóa tìm kiếm.");
+        if (query.equals("0")) {
+            System.out.println("Đã thoát tìm kiếm.");
             return;
         }
 
+        if (query.isEmpty()) {
+            System.out.println("Vui lòng nhập từ khóa tìm kiếm.\n");
+            continue; // bắt nhập lại
+        }
+
+        // Thử tìm theo ID
         try {
             int id = Integer.parseInt(query);
             System.out.printf("--- Đang tìm kiếm sản phẩm theo ID '%d' ---\n", id);
@@ -225,23 +232,31 @@ public class ConsoleUI {
                 System.out.println("\n--- KẾT QUẢ TÌM KIẾM THEO ID ---");
                 System.out.println("Không tìm thấy sản phẩm có ID: " + id);
             }
+
+            return; // tìm xong thoát hàm luôn
+
         } catch (NumberFormatException e) {
-            System.out.printf("--- Đang tìm kiếm sản phẩm theo từ khóa '%s' ---", query);
+            // Không phải số → tìm theo tên/mô tả
+            System.out.printf("\n--- Đang tìm kiếm sản phẩm theo từ khóa '%s' ---\n", query);
 
             List<Product> searchResults = service.searchProducts(query);
             displayProductList(searchResults, "KẾT QUẢ TÌM KIẾM THEO TÊN/MÔ TẢ");
+
+            return; // tìm xong thoát hàm
         }
     }
+}
+
 
     private void createProduct() throws Exception {
         System.out.println("\n--- THÊM SẢN PHẨM MỚI ---");
         System.out.print("Tên sản phẩm: ");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().trim();
 
         double price = readDoubleInput("Giá (VNĐ): ", 0.0);
 
         System.out.print("Mô tả: ");
-        String description = scanner.nextLine();
+        String description = scanner.nextLine().trim();
 
         LocalDate date = readDateInput("Ngày sản xuất (dd/MM/yyyy): ", LocalDate.now());
 
@@ -279,11 +294,11 @@ public class ConsoleUI {
             System.out.println("Các tiêu chí: [ID], [NAME], [PRICE], [DATE]");
             System.out.println("Cú pháp sắp xếp: CRITERIA[:DIRECTION]. VD: PRICE:DESC, NAME:ASC (Mặc định là ASC)");
 
-            System.out.print("Nhập [T]Trang sau, [P]Trang trước, Số trang, [C]Chọn sắp xếp hoặc [Q]Quay lại: ");
+            System.out.print("Nhập [N]Trang sau, [P]Trang trước, Số trang, [C]Chọn sắp xếp hoặc [Q]Quay lại: ");
             String action = scanner.nextLine().trim().toUpperCase();
 
             switch (action) {
-                case "T":
+                case "N":
                     currentPage = Math.min(currentPage + 1, totalPages);
                     break;
                 case "P":
@@ -317,6 +332,7 @@ public class ConsoleUI {
             }
         } while (true);
     }
+
 
     private void showMenu() {
         System.out.println("\n=============================================");
@@ -354,6 +370,8 @@ public class ConsoleUI {
         for (Product p : products) {
             System.out.println(p.toString());
         }
+        System.out.println();
+        System.out.println("Số lượng:" + products.size() + " sản phẩm");
         System.out.println(
                 "---------------------------------------------------------------------------------------------------------------------------------");
 

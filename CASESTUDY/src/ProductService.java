@@ -55,8 +55,23 @@ public class ProductService {
     }
 
     public List<Product> searchProducts(String query) throws Exception {
-        return repository.search(query);
+    List<Product> all = repository.findAll();
+    List<Product> result = new ArrayList<>();
+
+    String normalizedQuery = TextUtils.removeAccent(query.toLowerCase());
+
+    for (Product p : all) {
+        String nameNoAccent = TextUtils.removeAccent(p.getName().toLowerCase());
+        String descNoAccent = TextUtils.removeAccent(p.getDescription().toLowerCase());
+
+        if (nameNoAccent.contains(normalizedQuery) || descNoAccent.contains(normalizedQuery)) {
+            result.add(p);
+        }
     }
+
+    return result;
+}
+
 
     public List<Product> sortProducts(List<Product> products, String sortString) {
         if (products == null || products.isEmpty())
