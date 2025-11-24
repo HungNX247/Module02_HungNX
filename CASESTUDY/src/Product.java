@@ -58,7 +58,6 @@ public class Product implements Comparable<Product> {
         this.productionDate = productionDate;
     }
 
-    // Để ghi ra file
     public String toCsvString() {
         String dateStr = productionDate != null ? productionDate.format(DATE_FORMATTER) : "";
         return id + "|"

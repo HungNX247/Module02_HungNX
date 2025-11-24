@@ -1,3 +1,4 @@
+1|Laptop Gaming X1|21000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/01/2024
 2|Laptop Gaming X2|22000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/02/2024
 3|Laptop Gaming X3|23000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/03/2024
 4|Laptop Gaming X4|24000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/04/2024
@@ -18,7 +19,3 @@
 19|Laptop Gaming X19|39000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/07/2025
 20|Laptop Gaming X20|40000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/08/2025
 21|Laptop Gaming X21|41000000|Hiệu suất cao, phù hợp cho chơi game và làm việc|01/09/2025
-22|Iphone 16 Plus|23000000||23/09/2025
-23|Samsung S25 Ultra|17000000||19/11/2025
-24|Iphone 17|38000000||19/11/2025
-25|Ổ HDD WD Black 2TB|2790000||19/10/2021
