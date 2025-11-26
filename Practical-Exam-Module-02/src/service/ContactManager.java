@@ -13,7 +13,7 @@ import util.TextUtils;
 public class ContactManager implements IContactManager {
 
     private List<Contact> contacts = new ArrayList<>();
-    private static final String FILE_PATH = "D:/Module02_HungNX/Practical-Exam-Module-02/data/contacts.csv";
+    private static final String FILE_PATH = "data/contacts.csv";
     private static final Scanner scanner = new Scanner(System.in);
 
     @Override
