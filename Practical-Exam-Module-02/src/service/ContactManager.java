@@ -56,7 +56,6 @@ public class ContactManager implements IContactManager {
         Contact newContact = new Contact(phone, group, fullName, gender, address, birthday, email);
         contacts.add(newContact);
 
-        saveToFile();
         System.out.println("Contact added successfully.");
     }
 
@@ -109,7 +108,6 @@ public class ContactManager implements IContactManager {
             contact.setEmail(newEmail);
         }
 
-        saveToFile();
         System.out.println("Contact updated successfully.");
     }
 
