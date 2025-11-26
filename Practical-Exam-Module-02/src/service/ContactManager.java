@@ -162,9 +162,6 @@ public class ContactManager implements IContactManager {
 
     @Override
     public void loadFromFile() {
-        System.out.print("Reading the file will erase the current data, continue? (Y/N): ");
-        if (!scanner.nextLine().equalsIgnoreCase("Y"))
-            return;
         contacts.clear();
         File file = new File(FILE_PATH);
         File parent = file.getParentFile();
@@ -189,7 +186,7 @@ public class ContactManager implements IContactManager {
                     contacts.add(new Contact(p[0], p[1], p[2], p[3], p[4], p[5], p[6]));
                 }
             }
-
+            displayContacts();
             System.out.println("Contacts loaded successfully.");
 
         } catch (Exception e) {
@@ -199,30 +196,35 @@ public class ContactManager implements IContactManager {
 
     @Override
     public void saveToFile() {
+
         System.out.print("Writing the file will overwrite the old data, continue? (Y/N): ");
-        if (!scanner.nextLine().equalsIgnoreCase("Y"))
+        String confirm = scanner.nextLine().trim().toUpperCase();
+
+        if (!confirm.equals("Y")) {
+            System.out.println("Save cancelled.");
             return;
-        File file = new File(FILE_PATH);
-        File parent = file.getParentFile();
-        if (!parent.exists()) {
-            parent.mkdirs();
-        }
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                System.out.println("Error creating file: " + e.getMessage());
-                return;
-            }
         }
 
-        try (PrintWriter pw = new PrintWriter(new FileWriter(FILE_PATH))) {
+        try {
+            File file = new File(FILE_PATH);
+            File parent = file.getParentFile();
+
+            if (!parent.exists()) {
+                parent.mkdirs();
+            }
+
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            PrintWriter pw = new PrintWriter(new FileWriter(file));
 
             for (Contact c : contacts) {
                 pw.println(c.toCsv());
             }
 
-            System.out.println("Auto-saved to file.");
+            pw.close();
+            System.out.println("Contacts saved to file successfully!");
 
         } catch (Exception e) {
             System.out.println("Error saving file: " + e.getMessage());
