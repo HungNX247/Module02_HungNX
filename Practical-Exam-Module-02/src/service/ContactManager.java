@@ -162,6 +162,9 @@ public class ContactManager implements IContactManager {
 
     @Override
     public void loadFromFile() {
+        System.out.print("Reading the file will erase the current data, continue? (Y/N): ");
+        if (!scanner.nextLine().equalsIgnoreCase("Y"))
+            return;
         contacts.clear();
         File file = new File(FILE_PATH);
         File parent = file.getParentFile();
@@ -196,6 +199,9 @@ public class ContactManager implements IContactManager {
 
     @Override
     public void saveToFile() {
+        System.out.print("Writing the file will overwrite the old data, continue? (Y/N): ");
+        if (!scanner.nextLine().equalsIgnoreCase("Y"))
+            return;
         File file = new File(FILE_PATH);
         File parent = file.getParentFile();
         if (!parent.exists()) {
