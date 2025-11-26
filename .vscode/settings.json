@@ -13,5 +13,6 @@
   "java.debug.settings.console": "integratedTerminal",
   "java.debug.settings.vmArgs": "-Dfile.encoding=UTF-8",
 
-  "terminal.integrated.fontFamily": "Cascadia Mono"
+  "terminal.integrated.fontFamily": "Cascadia Mono",
+  "java.debug.settings.onBuildFailureProceed": true
 }
